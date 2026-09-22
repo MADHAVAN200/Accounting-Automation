@@ -1,0 +1,6 @@
+{
+  "name": "LedgerAI",
+  "description": "AI-Powered Accounting Automation Platform with Double-Entry Ledger, Invoice Matching, and Copilot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
