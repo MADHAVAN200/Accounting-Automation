@@ -1,0 +1,789 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-mono: 'Poppins', sans-serif;
+}
+
+:root {
+  font-family: 'Poppins', sans-serif;
+  color-scheme: dark;
+}
+
+*, ::before, ::after {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+html, body, #root, input, button, select, textarea, optgroup, table, th, td, code, pre, kbd, samp, span, div, p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Ensure font-mono utility class strictly uses Poppins with tabular digits */
+.font-mono {
+  font-family: 'Poppins', sans-serif !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   OLED BLACK MODE SYSTEM (Default / :not(.light))
+   ========================================================================== */
+:root:not(.light), html:not(.light) {
+  --canvas-black: #000000;
+  --surface-black: #0c0d11;
+  --surface-elevated: #13141a;
+  --surface-hover: #181920;
+  --surface-inset: #050507;
+  --border-black: #22242b;
+  --border-subtle: #181a20;
+  --border-active: #388bfd;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --text-subtle: #71717a;
+  color-scheme: dark;
+}
+
+html:not(.light), html:not(.light) body {
+  background-color: #000000 !important;
+  color: #f4f4f5 !important;
+}
+
+/* Black Mode Background Overrides */
+html:not(.light) .bg-white,
+html:not(.light) .bg-slate-900,
+html:not(.light) .bg-gray-900 {
+  background-color: #0c0d11 !important;
+}
+
+html:not(.light) .bg-slate-950,
+html:not(.light) .bg-black,
+html:not(.light) .bg-\[\#0d1117\],
+html:not(.light) .bg-\[\#F8F9FA\],
+html:not(.light) .bg-slate-50,
+html:not(.light) .bg-gray-50 {
+  background-color: #000000 !important;
+}
+
+html:not(.light) .bg-\[\#161b22\],
+html:not(.light) .bg-slate-800,
+html:not(.light) .bg-gray-800,
+html:not(.light) .bg-slate-100,
+html:not(.light) .bg-gray-100 {
+  background-color: #0c0d11 !important;
+}
+
+html:not(.light) .bg-\[\#21262d\],
+html:not(.light) .bg-slate-700,
+html:not(.light) .bg-gray-200 {
+  background-color: #14151c !important;
+}
+
+html:not(.light) .bg-\[\#30363d\] {
+  background-color: #1e2029 !important;
+}
+
+/* Black Mode Borders */
+html:not(.light) .border-gray-200,
+html:not(.light) .border-gray-300,
+html:not(.light) .border-slate-200,
+html:not(.light) .border-slate-300,
+html:not(.light) .border-slate-800,
+html:not(.light) .border-slate-700,
+html:not(.light) .border-\[\#30363d\] {
+  border-color: #22242b !important;
+}
+
+html:not(.light) .border-gray-100,
+html:not(.light) .border-slate-100,
+html:not(.light) .border-\[\#21262d\] {
+  border-color: #181a20 !important;
+}
+
+html:not(.light) .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
+html:not(.light) .divide-slate-200 > :not([hidden]) ~ :not([hidden]),
+html:not(.light) .divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #22242b !important;
+}
+
+/* Black Mode Typography */
+html:not(.light) .text-gray-900,
+html:not(.light) .text-slate-900,
+html:not(.light) .text-\[\#1A1A1A\],
+html:not(.light) .text-\[\#e6edf3\],
+html:not(.light) .text-white {
+  color: #ffffff !important;
+}
+
+html:not(.light) .text-gray-800,
+html:not(.light) .text-slate-800,
+html:not(.light) .text-gray-700,
+html:not(.light) .text-slate-700,
+html:not(.light) .text-\[\#c9d1d9\] {
+  color: #e4e4e7 !important;
+}
+
+html:not(.light) .text-gray-600,
+html:not(.light) .text-slate-600,
+html:not(.light) .text-gray-500,
+html:not(.light) .text-slate-500,
+html:not(.light) .text-\[\#848d97\] {
+  color: #a1a1aa !important;
+}
+
+html:not(.light) .text-gray-400,
+html:not(.light) .text-slate-400,
+html:not(.light) .text-zinc-500,
+html:not(.light) .text-\[\#656c76\] {
+  color: #a1a1aa !important;
+}
+
+html:not(.light) .text-\[\#71717a\] {
+  color: #a1a1aa !important;
+}
+
+/* Black Form Elements & Inputs */
+html:not(.light) input:not([type="checkbox"]):not([type="radio"]),
+html:not(.light) select,
+html:not(.light) textarea {
+  background-color: #050507 !important;
+  color: #ffffff !important;
+  border-color: #27272a !important;
+}
+
+html:not(.light) input[type="date"]::-webkit-calendar-picker-indicator,
+html:not(.light) input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.2) !important;
+  opacity: 0.9 !important;
+  cursor: pointer;
+}
+
+html:not(.light) select option {
+  background-color: #0c0d11 !important;
+  color: #ffffff !important;
+}
+
+html:not(.light) input:not([type="checkbox"]):not([type="radio"]):focus,
+html:not(.light) select:focus,
+html:not(.light) textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 1px #3b82f6 !important;
+  outline: none !important;
+}
+
+html:not(.light) input::placeholder,
+html:not(.light) textarea::placeholder {
+  color: #82828e !important;
+}
+
+/* Black Mode Badges / Chips */
+html:not(.light) .bg-indigo-50, html:not(.light) .bg-blue-50, html:not(.light) .bg-indigo-50\/70, html:not(.light) .bg-indigo-50\/80 {
+  background-color: rgba(99, 102, 241, 0.12) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  color: #818cf8 !important;
+}
+
+html:not(.light) .bg-emerald-50, html:not(.light) .bg-green-50, html:not(.light) .bg-emerald-50\/80 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #34d399 !important;
+}
+
+html:not(.light) .bg-amber-50, html:not(.light) .bg-yellow-50, html:not(.light) .bg-amber-50\/80 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  color: #fbbf24 !important;
+}
+
+html:not(.light) .bg-rose-50, html:not(.light) .bg-red-50, html:not(.light) .bg-rose-50\/80 {
+  background-color: rgba(244, 63, 94, 0.12) !important;
+  border-color: rgba(244, 63, 94, 0.3) !important;
+  color: #fb7185 !important;
+}
+
+html:not(.light) .bg-purple-50 {
+  background-color: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(168, 85, 247, 0.3) !important;
+  color: #c084fc !important;
+}
+
+html:not(.light) tr:hover {
+  background-color: #14151c !important;
+}
+
+/* ==========================================================================
+   GLOBAL SCROLLBAR REMOVAL (PLATFORM & DROPDOWNS)
+   Hides all visible scrollbars completely while retaining full smooth scrolling
+   ========================================================================== */
+*, *::before, *::after {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+::-webkit-scrollbar,
+*::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+div::-webkit-scrollbar,
+main::-webkit-scrollbar,
+nav::-webkit-scrollbar,
+ul::-webkit-scrollbar,
+ol::-webkit-scrollbar,
+section::-webkit-scrollbar,
+aside::-webkit-scrollbar,
+form::-webkit-scrollbar,
+table::-webkit-scrollbar,
+tbody::-webkit-scrollbar,
+[role="listbox"]::-webkit-scrollbar,
+select::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-thumb {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Specific Dropdown & Select Scrollbar Removal */
+[role="listbox"],
+[role="listbox"] *,
+select,
+select * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+[role="listbox"]::-webkit-scrollbar,
+select::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+/* Scrollbar-hide utility class */
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ==========================================================================
+   PRISTINE WHITE / LIGHT MODE SYSTEM (.light)
+   ========================================================================== */
+html.light {
+  color-scheme: light;
+}
+
+html.light,
+html.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Light Mode Canvas & Layout */
+html.light,
+html.light body,
+html.light main,
+html.light main.bg-\[\#000000\],
+html.light .bg-\[\#000000\],
+html.light div.bg-\[\#000000\] {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Light Mode Header & Navbar */
+html.light header,
+html.light header.bg-\[\#000000\] {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Light Mode Card Surfaces (Primary White Card) */
+html.light .bg-\[\#0c0d11\],
+html.light .bg-\[\#13141a\],
+html.light .bg-\[\#181a24\],
+html.light .bg-slate-900,
+html.light .bg-gray-900 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Attention / Warning Card in Light Mode */
+html.light .bg-\[\#181206\],
+html.light div.bg-\[\#181206\] {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-\[\#181206\] .bg-\[\#0c0d11\] {
+  background-color: #ffffff !important;
+  border-color: #fde68a !important;
+}
+
+html.light .bg-\[\#181206\] .bg-\[\#0c0d11\]:hover {
+  border-color: #d97706 !important;
+  background-color: #fefce8 !important;
+}
+
+/* Light Mode Inset / Secondary Containers (Off-white / Slate 100) */
+html.light .bg-\[\#050507\],
+html.light .bg-\[\#14151c\],
+html.light .bg-\[\#161b22\],
+html.light .bg-\[\#1e2029\],
+html.light .bg-slate-950,
+html.light .bg-black {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html.light .hover\:bg-\[\#14151c\]:hover,
+html.light .hover\:bg-\[\#1e2029\]:hover {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .bg-\[\#181920\],
+html.light .bg-\[\#21262d\],
+html.light .bg-\[\#30363d\] {
+  background-color: #e2e8f0 !important;
+}
+
+/* Light Mode Borders */
+html.light .border-\[\#1e2029\],
+html.light .border-\[\#22242b\],
+html.light .border-\[\#181a20\],
+html.light .border-\[\#272935\],
+html.light .border-\[\#30363d\],
+html.light .border-\[\#2e230d\],
+html.light .border-slate-800,
+html.light .border-gray-800,
+html.light .divide-\[\#1e2029\] > :not([hidden]) ~ :not([hidden]),
+html.light .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
+html.light .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e2e8f0 !important;
+}
+
+/* ==========================================================================
+   LIGHT MODE TYPOGRAPHY & CONTRAST
+   ========================================================================== */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #0f172a !important;
+}
+
+/* Base text elements */
+html.light .text-\[\#f4f4f5\],
+html.light .text-\[\#e6edf3\] {
+  color: #0f172a !important;
+}
+
+html.light .text-\[\#d4d4d8\],
+html.light .text-slate-200,
+html.light .text-slate-300,
+html.light .text-zinc-100,
+html.light .text-zinc-200,
+html.light .text-zinc-300 {
+  color: #334155 !important;
+}
+
+html.light .text-\[\#a1a1aa\],
+html.light .text-slate-400,
+html.light .text-zinc-400 {
+  color: #475569 !important;
+}
+
+html.light .text-\[\#71717a\],
+html.light .text-slate-500,
+html.light .text-zinc-500 {
+  color: #64748b !important;
+}
+
+/* Convert text-white to dark text EXCEPT in solid colored buttons, chips & badges */
+html.light .text-white,
+html.light strong,
+html.light b,
+html.light [class*="rounded"] .text-white,
+html.light card .text-white {
+  color: #0f172a !important;
+}
+
+/* High-contrast WCAG AA accessible accents in Light Mode */
+html.light .text-\[\#34d399\] {
+  color: #059669 !important; /* Accessible Emerald */
+}
+
+html.light .text-\[\#38bdf8\] {
+  color: #0284c7 !important; /* Accessible Sky Blue */
+}
+
+html.light .text-\[\#fbbf24\] {
+  color: #d97706 !important; /* Accessible Amber */
+}
+
+html.light .text-\[\#f87171\],
+html.light .text-rose-400 {
+  color: #dc2626 !important; /* Accessible Red */
+}
+
+html.light .text-\[\#818cf8\] {
+  color: #4f46e5 !important; /* Accessible Indigo */
+}
+
+html.light .text-\[\#a78bfa\] {
+  color: #7c3aed !important; /* Accessible Purple */
+}
+
+/* ==========================================================================
+   PRESERVE WHITE TEXT ON SOLID COLORED BUTTONS & PILLS (CRITICAL FIX)
+   ========================================================================== */
+html.light .bg-\[\#16a34a\],
+html.light .bg-\[\#16a34a\] *,
+html.light .bg-\[\#22c55e\],
+html.light .bg-\[\#22c55e\] *,
+html.light .bg-emerald-600,
+html.light .bg-emerald-600 *,
+html.light .bg-green-600,
+html.light .bg-green-600 *,
+html.light .bg-\[\#2563eb\],
+html.light .bg-\[\#2563eb\] *,
+html.light .bg-\[\#3b82f6\],
+html.light .bg-\[\#3b82f6\] *,
+html.light .bg-\[\#1d4ed8\],
+html.light .bg-\[\#1d4ed8\] *,
+html.light .bg-blue-600,
+html.light .bg-blue-600 *,
+html.light .bg-indigo-600,
+html.light .bg-indigo-600 *,
+html.light .bg-rose-600,
+html.light .bg-rose-600 *,
+html.light .bg-red-600,
+html.light .bg-red-600 * {
+  color: #ffffff !important;
+}
+
+/* Primary buttons background reinforcement in Light Mode */
+html.light button.bg-\[\#16a34a\] {
+  background-color: #16a34a !important;
+  border-color: #15803d !important;
+}
+html.light button.bg-\[\#16a34a\]:hover {
+  background-color: #15803d !important;
+}
+
+html.light button.bg-\[\#2563eb\] {
+  background-color: #2563eb !important;
+  border-color: #1d4ed8 !important;
+}
+html.light button.bg-\[\#2563eb\]:hover {
+  background-color: #1d4ed8 !important;
+}
+
+/* Secondary / Outline buttons in Light Mode */
+html.light button.bg-\[\#0c0d11\],
+html.light a.bg-\[\#0c0d11\] {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light button.bg-\[\#0c0d11\]:hover,
+html.light a.bg-\[\#0c0d11\]:hover {
+  background-color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Active navigation tab in Light Mode */
+html.light nav button.bg-\[\#14151c\] {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light nav button.text-\[\#a1a1aa\] {
+  color: #64748b !important;
+}
+
+html.light nav button.text-\[\#a1a1aa\]:hover {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+
+/* ==========================================================================
+   LIGHT MODE BADGES & STATUS PILLS
+   ========================================================================== */
+html.light .bg-emerald-500\/10 {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #065f46 !important;
+}
+
+html.light .bg-blue-500\/10,
+html.light .bg-sky-500\/10 {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1e40af !important;
+}
+
+html.light .bg-amber-500\/10 {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #92400e !important;
+}
+
+html.light .bg-rose-500\/10 {
+  background-color: #fff1f2 !important;
+  border-color: #fecdd3 !important;
+  color: #9f1239 !important;
+}
+
+html.light .bg-indigo-500\/10,
+html.light .bg-indigo-500\/15 {
+  background-color: #eef2ff !important;
+  border-color: #c7d2fe !important;
+  color: #3730a3 !important;
+}
+
+/* ==========================================================================
+   LIGHT MODE FORM INPUTS & TABLES
+   ========================================================================== */
+html.light input:not([type="checkbox"]):not([type="radio"]),
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html.light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light input:not([type="checkbox"]):not([type="radio"]):focus,
+html.light select:focus,
+html.light textarea:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+  outline: none !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   THEME ADAPTIVE CHECKBOX SYSTEM
+   ========================================================================== */
+html:not(.light) input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  background-color: #0c0d11 !important;
+  border: 1.5px solid #2e313d !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  display: inline-grid !important;
+  place-content: center !important;
+  transition: all 0.15s ease-in-out !important;
+  vertical-align: middle !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
+html:not(.light) input[type="checkbox"]:hover {
+  border-color: #4b5162 !important;
+  background-color: #14151c !important;
+}
+
+html:not(.light) input[type="checkbox"]:checked {
+  background-color: #2563eb !important;
+  border-color: #3b82f6 !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E") !important;
+  background-size: 80% 80% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+html:not(.light) input[type="checkbox"]:focus-visible {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}
+
+html.light input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  background-color: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  display: inline-grid !important;
+  place-content: center !important;
+  transition: all 0.15s ease-in-out !important;
+  vertical-align: middle !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
+html.light input[type="checkbox"]:hover {
+  border-color: #94a3b8 !important;
+  background-color: #f8fafc !important;
+}
+
+html.light input[type="checkbox"]:checked {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E") !important;
+  background-size: 80% 80% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+html.light input[type="checkbox"]:focus-visible {
+  outline: 2px solid #2563eb !important;
+  outline-offset: 2px !important;
+}
+
+/* Table header & row styling in Light Mode */
+html.light thead tr.bg-\[\#050507\] {
+  background-color: #f1f5f9 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+html.light thead th {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+html.light tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+
+/* ==========================================================================
+   LIGHT MODE MODALS & DIALOGS
+   ========================================================================== */
+html.light .bg-black\/80,
+html.light .bg-black\/70 {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+html.light .max-w-2xl.bg-\[\#0c0d11\],
+html.light .max-w-md.bg-\[\#0c0d11\],
+html.light .max-w-xl.bg-\[\#0c0d11\] {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Light Mode AI Copilot Specifics */
+html.light .bot-bubble,
+html.light div.bg-\[\#0c0d11\].border-\[\#22242b\] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light code.bg-\[\#050507\],
+html.light .code-block {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0284c7 !important;
+}
+
+/* ==========================================================================
+   CUSTOM DROPDOWN SELECT STYLES (THEME ADAPTIVE)
+   ========================================================================== */
+html.light button[aria-haspopup="listbox"] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light button[aria-haspopup="listbox"]:hover {
+  background-color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+html.light button[aria-haspopup="listbox"]:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15) !important;
+}
+
+html.light div[role="listbox"] {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light div[role="listbox"] .sticky {
+  background-color: #ffffff !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+html.light div[role="listbox"] button[role="option"] {
+  color: #334155 !important;
+}
+
+html.light div[role="listbox"] button[role="option"]:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+html.light div[role="listbox"] button[role="option"][aria-selected="true"] {
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+  font-weight: 600 !important;
+}
+
+html.light div[role="listbox"] button[role="option"][aria-selected="true"] * {
+  color: #1d4ed8 !important;
+}
+
+html:not(.light) button[aria-haspopup="listbox"] {
+  background-color: #050507 !important;
+  border-color: #22242b !important;
+  color: #ffffff !important;
+}
+
+html:not(.light) button[aria-haspopup="listbox"]:hover {
+  background-color: #0c0d11 !important;
+  border-color: #2f333e !important;
+}
+
+html:not(.light) div[role="listbox"] {
+  background-color: #0c0d11 !important;
+  border-color: #22242b !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9) !important;
+}
+
+html:not(.light) div[role="listbox"] button[role="option"]:hover {
+  background-color: #14151c !important;
+  color: #ffffff !important;
+}
+
+html:not(.light) div[role="listbox"] button[role="option"][aria-selected="true"] {
+  background-color: #181a24 !important;
+  color: #38bdf8 !important;
+}
+
